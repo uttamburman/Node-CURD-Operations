@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <%- include ('../partials/common_header.ejs') -%>  -->
+    <%- include ('../partials/index_header.ejs') -%> 
+</head>
+<body>
+      <!-- Hero -->
+  <section class="et-hero-tabs">
+    <h1>Node Js CURD Operations</h1>
+    <h3></h3>
+    <div class="et-hero-tabs-container">
+      <a class="et-hero-tab" href="#tabInline">Inline</a>
+      <a class="et-hero-tab" href="#Modal_design">Model</a>
+      <a class="et-hero-tab" href="#tab-react">Other</a>
+      <a class="et-hero-tab" href="#tab-angular">Angular</a>
+      <a class="et-hero-tab" href="#tab-other">Other</a>
+      <span class="et-hero-tab-slider"></span>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="et-main">
+    <section class="et-slide" id="tabInline">
+      <%- include ('Emp_details_png01.ejs') -%> 
+    </section>
+    <section class="et-slide" id="Modal_design">
+      <%- include ('Modal_design_png02.ejs') -%> 
+      <br>
+    </section>
+
+    <section class="et-slide" id="tab-react">
+      <h1>Other</h1>
+      <h3>something about react</h3>
+    </section>
+    <section class="et-slide" id="tab-angular">
+      <h1>Angular</h1>
+      <h3>something about angular</h3>
+    </section>
+    <section class="et-slide" id="tab-other">
+      <h1>Other</h1>
+      <h3>something about other</h3>
+    </section>
+  </main>
+</body>
+</html>

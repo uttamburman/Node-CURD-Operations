@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/common_header.ejs') -%>   
+    <%- include ('../partials/png02_header.ejs') -%>
+</head>
+
+    <body >
+        <div class="container-xl">
+            <div class="table02-responsive">
+                <div class="table02-wrapper">
+                    <div class="table02-title">
+                        <div class="row">
+                            <div class="col-sm-4" style="text-align: left;"><h2><b> Manage Employees</b></h2></div>
+                            <div class="col-sm-8">
+                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+                            </div>
+                        </div>
+                    </div>
+                    <% if (lst_emp_details02.length > 0) { %>
+                    <table class="table02 table02-striped table02-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="selectAll">
+                                        <label for="selectAll"></label>
+                                    </span>
+                                </th>
+                                <th style="width:10%">Name</th>
+                                <th hidden></th>
+                                <th >Email</th>
+                                <th style="width:20%">Address</th>
+                                <th style="width:5%">Phone</th>
+                                <th >Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% lst_emp_details02.forEach(function(item , index){%>
+                            <tr>
+                                <td>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                        <label for="checkbox1"></label>
+                                    </span>
+                                </td>
+                              
+                                <td style="width:10%" ><%= item.emp_name %></td>
+                                <td  hidden><%= item.id %> </td>
+                                <td ><%= item.emp_email  %></td>
+                                <td style="width:20%"><%= item.address%></td>
+                                <td style="width:5%"><%= item.phone %></td>
+                                <td>
+                                    <a href="#editEmployeeModal" id="editModal" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" hidden>&#xE254;</i></a>
+                                    <a  onclick="edit_data('<%= item.id %>')" class="edit02"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" >&#xE254;</i></a>
+                                    <a href="#deleteEmployeeModal" class="delete02" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            <%  }); %>
+                        </tbody>
+                    </table>
+                    <%- include ('../partials/modal.ejs') -%>
+                   
+                    <div class="clearfix">
+                        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a href="#">Previous</a></li>
+                            <li class="page-item"><a href="#" class="page-link">1</a></li>
+                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                            <li class="page-item"><a href="#" class="page-link">5</a></li>
+                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                        </ul>
+                    </div>
+                    <% } else { %>
+                        <p><strong>There are no records available ...</strong></p>
+                 <%  } %>
+                </div>
+            </div>        
+        </div>
+
+
+         <!-- Edit Modal HTML -->
+ <div id="addEmployeeModal"  class="modal fade" data-backdrop="static" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/add/emp_details/tbl02/" method="POST">
+                <div class="modal-header">						
+                    <h4 class="modal-title">Add Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">					
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="empName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="empEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" name="empAddress" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="empPhone" class="form-control" required>
+                    </div>					
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success" value="Add">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "CURD Operations",
+  "version": "1.0.0",
+  "description": "This is use for Create update delete Operations.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajshree Barman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mysql": "^2.18.1",
+    "node-ews": "^3.4.2",
+    "nodemon": "^2.0.7",
+    "save": "^2.4.0",
+    "tether": "^1.4.7"
+  }
+}
