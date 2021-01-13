@@ -28,8 +28,7 @@ function executeSqlQuery(qry) {
 //   SELECT * FROM automation_test.emp_details;
 
 router.post('/add/emp_details/tbl02/', async (req, res) => {
-  qry_insert = ` INSERT INTO tbl_emp_detail02 (emp_name, emp_email, address, phone) VALUES ('
-          ${req.body.empName}','${req.body.empEmail}', '${req.body.empAddress}', '${req.body.empPhone}')`
+  qry_insert = ` INSERT INTO tbl_emp_detail02 (emp_name, emp_email, address, phone) VALUES ('${req.body.empName}','${req.body.empEmail}', '${req.body.empAddress}', '${req.body.empPhone}')`
     result = await executeSqlQuery(qry_insert);
     res.redirect("/png01#Modal_design");
 })

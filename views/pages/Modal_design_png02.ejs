@@ -23,10 +23,11 @@
                         <thead>
                             <tr>
                                 <th>
-                                    <span class="custom-checkbox">
+                                    <!-- <span class="custom-checkbox">
                                         <input type="checkbox" id="selectAll">
-                                        <label for="selectAll"></label>
-                                    </span>
+                                        <label for="selectAll"></label> 
+                                    </span> -->
+                                    <input  type="checkbox" id="selectAll">
                                 </th>
                                 <th style="width:10%">Name</th>
                                 <th hidden></th>
@@ -37,15 +38,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% lst_emp_details02.forEach(function(item , index){%>
+                            
                             <tr>
                                 <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
+                                    <input   type="checkbox"  >
+                                    <!-- <span class="custom-checkbox">
+                                        <input  class="custom-checkbox" type="checkbox" id="checkbox1" >
+                                         <label for="checkbox1"></label> name="options[]" value="1" 
+                                    </span> -->
                                 </td>
-                              
+                                <% lst_emp_details02.forEach(function(item , index){%>
                                 <td style="width:10%" ><%= item.emp_name %></td>
                                 <td  hidden><%= item.id %> </td>
                                 <td ><%= item.emp_email  %></td>
@@ -56,8 +58,9 @@
                                     <a  onclick="edit_data('<%= item.id %>')" class="edit02"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" >&#xE254;</i></a>
                                     <a href="#deleteEmployeeModal" class="delete02" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
+                                <%  }); %>
                             </tr>
-                            <%  }); %>
+                           
                         </tbody>
                     </table>
                     <%- include ('../partials/modal.ejs') -%>

@@ -172,8 +172,8 @@ a {
 </style>
 <script>
 
-    class StickyNavigation {
-	
+
+	class StickyNavigation {
 	constructor() {
 		this.currentId = null;
 		this.currentTab = null;
@@ -242,9 +242,7 @@ a {
 		}
 		$('.et-hero-tab-slider').css('width', width);
 		$('.et-hero-tab-slider').css('left', left);
-	}
-	
+    }	
 }
-
-new StickyNavigation();
+$(document).ready(function(){ new StickyNavigation();})
 </script>
